@@ -43,6 +43,12 @@ public class Calculator {
 
     }
 
+    //가장 먼저 저장된 데이터 삭제하는 메서드
+    public void delfirstResult(){
+        getResults().remove(0);
+    }
+
+
     public List<Integer> getResults() {
         return results;
     }

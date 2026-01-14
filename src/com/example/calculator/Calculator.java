@@ -34,8 +34,7 @@ public class Calculator {
         //System.out.print("첫번째 숫자: "+num1+"\n2번째 숫자: "+num2);//출력문으로 동작확인
 
         System.out.println("사칙연산 기호를 입력해주세요 : +, -, *, /");
-        cal = sc.nextLine().charAt(0);//입력값중 첫번째글자만 char형태 변수 cal에 저장
-
+        cal = sc.next().charAt(0);//입력값중 첫번째글자만 char형태 변수 cal에 저장
 
         }
 

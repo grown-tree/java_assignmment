@@ -1,73 +1,53 @@
 package com.example.calculator;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
 
 public class Calculator {
 
-    public static void main(String[] args) {
+    private List<Integer> results = new ArrayList<>();//연산결과 저장하는 컬렉션 타입 필드선언 및 생성
+    private String exit= "";
+    Scanner sc = new Scanner(System.in);
+    public List<Integer> Calculator(int n1, int n2, char cal){
 
-        int num1,num2 = 0;//사용자입력 숫자저장 변수
-        char cal= ' '; //연산기호저장 변수
-        int result = 0; //결과저장 변수
-        String exit= ""; //종료 변수
-
-        Scanner sc = new Scanner(System.in);//사용자로부터 입력받기위한 인스턴스
-        while (true) {
-            while (true) {//무한반복
-                System.out.print("첫 번째 숫자를 입력하세요: ");
-                num1 = sc.nextInt();
-                if (num1 >= 0) {//입력받은 숫자가 0보다 큰 경우 반복문 탈출
-                    break;
-                } else {//그외 모든경우
-                    System.out.println("0보다 큰 숫자를 입력해주세요 ");
-                }
-            }
-            while (true) {
-                System.out.print("두 번째 숫자를 입력하세요: ");
-                num2 = sc.nextInt();
-                if (num2 >= 0) {
-                    break;
-                } else {
-                    System.out.println("0보다 큰 숫자를 입력해주세요 ");
-                }
-            }
-
-            System.out.println("사칙연산 기호를 입력해주세요 : +, -, *, /");
-            cal = sc.next().charAt(0);//입력값중 첫번째글자만 char형태 변수 cal에 저장
 
             switch (cal) {
                 case '+':
-                    result = num1 + num2;
+                    results.add(n1+n2);
                     break;
                 case '-':
-                    result = num1 - num2;
+                    results.add(n1-n2);
                     break;
                 case '*':
-                    result = num1 * num2;
+                    results.add(n1*n2);
                     break;
                 case '/':
 
-                    if (num2 == 0) System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-
-                    result = num1 / num2;
+                    if (n2 == 0) System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                    results.add(n1/n2);
                     break;
                 default:
                     System.out.println("+, -, *, / 중 하나를 입력해주세요.");
                     break;
             }
-            System.out.println("결과 : " + result);
+        System.out.println("결과확인 o x");
+        exit = sc.next();
 
-            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-            exit = sc.next();
-
-            if(exit.equals("exit")){
-                System.out.println("프로그램을 종료합니다.");
-                break;
+        if(exit.equals("o")){
+            for (int i = 0; i < results.size(); i++) {
+                System.out.println(i+"번째 결과 : " + results.get(i));
             }
-
         }
+        
+
+        return results;
+
+
 
     }
 
-}
 
+
+}

@@ -8,8 +8,6 @@ import java.util.Scanner;
 public class Calculator {
 
     private List<Integer> results = new ArrayList<>();//연산결과 저장하는 컬렉션 타입 필드선언 및 생성
-    private String exit= "";
-    Scanner sc = new Scanner(System.in);
     public List<Integer> Calculator(int n1, int n2, char cal){
 
             switch (cal) {
@@ -31,26 +29,22 @@ public class Calculator {
                     System.out.println("+, -, *, / 중 하나를 입력해주세요.");
                     break;
             }
-        System.out.println("결과확인 o x");
-        exit = sc.next();
-
-        if(exit.equals("o")){
-            for (int i = 0; i < results.size(); i++) {
-                System.out.println(i+"번째 결과 : " + results.get(i));
-            }
-        }
         return results;
 
     }
 
-    //가장 먼저 저장된 데이터 삭제하는 메서드
-    public void delfirstResult(){
-        getResults().remove(0);
+    //입력한 번호에 인덱스 데이터를 삭제하는 메서드
+    public void delfirstResult(int n){
+        getResults().remove(n);
     }
 
 
     public List<Integer> getResults() {
         return results;
+    }
+    //입력한 숫자를 컬렉션 필드에 추가하는 메서드
+    public void setResults(int n) {
+        this.results.add(n);
     }
 
     public void setResults(List<Integer> results) {

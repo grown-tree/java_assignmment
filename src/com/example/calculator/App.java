@@ -1,7 +1,6 @@
 package com.example.calculator;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,10 +10,10 @@ public class App {
 
         int num1,num2 = 0;
         List<Integer> test = new ArrayList<>();
+        int testing = 0;
         char cal= ' '; //연산기호저장 변수
-        int result = 0; //결과저장 변수
         String exit= "";
-        
+
         Scanner sc = new Scanner(System.in);//사용자로부터 입력받기위한 인스턴스
         Calculator calMethod = new Calculator();
         while (true) {
@@ -41,19 +40,24 @@ public class App {
 
             calMethod.Calculator(num1,num2,cal);//사칙연산을 수행 후, 결과값 반환 메서드
 
-            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료,게터,세터)");
+            System.out.println("더 계산하시겠습니까?\n(exit 입력 시 종료,\t check 입력시 결과확인, \t modify 입력시 결과수정)");
             exit = sc.next();
 
             if(exit.equals("exit")){
                 System.out.println("프로그램을 종료합니다.");
                 break;
-            } else if (exit.equals("게터")) {
-                System.out.println("게터활용:"+calMethod.getResults());;
-            }else if (exit.equals("세터")) {
-                System.out.println("세터활용테스트 숫자입력");
-                test.add(99);
+            } else if (exit.equals("check")) {//컬렉션 필드 게터활용
+                System.out.println("결과 확인:"+calMethod.getResults());
 
-                calMethod.setResults(test);
+            }else if (exit.equals("modify")) {
+                System.out.println("결과 확인:"+calMethod.getResults());
+                System.out.println("결과값에 삭제하고싶은 인덱스 번호입력");
+                testing = sc.nextInt();
+                calMethod.delfirstResult(testing);//입력한 숫자에 해당하는 인덱스결과값 삭제
+                System.out.println("결과값에 추가하고싶은 숫자입력");
+                testing = sc.nextInt();
+                calMethod.setResults(testing);//세터 활용
+                System.out.println("수정된 결과 확인:"+calMethod.getResults());
             }
         }
 

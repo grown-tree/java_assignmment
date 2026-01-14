@@ -12,7 +12,6 @@ public class Calculator {
     Scanner sc = new Scanner(System.in);
     public List<Integer> Calculator(int n1, int n2, char cal){
 
-
             switch (cal) {
                 case '+':
                     results.add(n1+n2);
@@ -40,14 +39,15 @@ public class Calculator {
                 System.out.println(i+"번째 결과 : " + results.get(i));
             }
         }
-        
-
         return results;
-
-
 
     }
 
+    public List<Integer> getResults() {
+        return results;
+    }
 
-
+    public void setResults(List<Integer> results) {
+        this.results = results;
+    }
 }

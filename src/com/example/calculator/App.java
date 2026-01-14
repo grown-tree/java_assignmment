@@ -6,10 +6,10 @@ public class App {
 
     public static void main(String[] args) {
 
-        int num1,num2 = 0;//사용자입력 숫자저장 변수
+        int num1,num2 = 0;
         char cal= ' '; //연산기호저장 변수
         int result = 0; //결과저장 변수
-        String exit= ""; //종료 변수
+        String exit= "";
         
         Scanner sc = new Scanner(System.in);//사용자로부터 입력받기위한 인스턴스
         Calculator calMethod = new Calculator();
@@ -41,7 +41,6 @@ public class App {
             exit = sc.next();
 
             if(exit.equals("exit")){
-
                 System.out.println("프로그램을 종료합니다.");
                 break;
             }

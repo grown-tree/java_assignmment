@@ -1,5 +1,8 @@
 package com.example.calculator;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -7,6 +10,7 @@ public class App {
     public static void main(String[] args) {
 
         int num1,num2 = 0;
+        List<Integer> test = new ArrayList<>();
         char cal= ' '; //연산기호저장 변수
         int result = 0; //결과저장 변수
         String exit= "";
@@ -37,12 +41,19 @@ public class App {
 
             calMethod.Calculator(num1,num2,cal);//사칙연산을 수행 후, 결과값 반환 메서드
 
-            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료,게터,세터)");
             exit = sc.next();
 
             if(exit.equals("exit")){
                 System.out.println("프로그램을 종료합니다.");
                 break;
+            } else if (exit.equals("게터")) {
+                System.out.println("게터활용:"+calMethod.getResults());;
+            }else if (exit.equals("세터")) {
+                System.out.println("세터활용테스트 숫자입력");
+                test.add(99);
+
+                calMethod.setResults(test);
             }
         }
 

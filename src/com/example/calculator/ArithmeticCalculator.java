@@ -2,6 +2,7 @@ package com.example.calculator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ArithmeticCalculator <T extends Number> {
 
@@ -22,7 +23,6 @@ public class ArithmeticCalculator <T extends Number> {
         getResults().remove(n);
     }
 
-
     public List<Number> getResults() {
         return results;
     }
@@ -33,5 +33,14 @@ public class ArithmeticCalculator <T extends Number> {
 
     public void setResults(List<Number> results) {
         this.results = results;
+    }
+
+    //저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 들을 출력해주는 메서드
+    public List<Number> biggerResults(Number num){
+
+        //스트림으로 준비 필터로 더큰값 분류후 콜렉트로 모아서 리스트로만들어서 넣어줌
+        List<Number> biggerResults = getResults().stream().filter(n ->n.doubleValue() > num.doubleValue()).collect(Collectors.toList());
+
+        return biggerResults;
     }
 }

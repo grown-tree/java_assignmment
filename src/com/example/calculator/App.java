@@ -40,7 +40,7 @@ public class App {
 
             calMethod.Calculator(num1,num2,Character.toString(cal));//숫자2개와 char형을 String으로 변환 후 전달
 
-            System.out.println("더 계산하시겠습니까?\n(exit 입력 시 종료,\t check 입력시 결과확인, \t modify 입력시 결과수정)");
+            System.out.println("더 계산하시겠습니까?\n(exit 입력 시 종료,\t check 입력시 결과확인, \t modify 입력시 결과수정 \t bigger입력시 결과값중 입력값보다 더 큰 값 확인)");
             exit = sc.next();
 
             if(exit.equals("exit")){
@@ -58,6 +58,9 @@ public class App {
                 testing = sc.nextInt();
                 calMethod.setResults(testing);//세터 활용
                 System.out.println("수정된 결과 확인:"+calMethod.getResults());
+            }else if(exit.equals("bigger")){
+                System.out.println("숫자 입력해주세요");
+                System.out.println("더 큰 값 확인" + calMethod.biggerResults(sc.nextDouble()));
             }
         }
 

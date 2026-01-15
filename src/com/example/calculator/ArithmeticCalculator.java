@@ -3,11 +3,11 @@ package com.example.calculator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArithmeticCalculator {
+public class ArithmeticCalculator <T extends Number> {
 
-    private List<Integer> results = new ArrayList<>();//연산결과 저장하는 컬렉션 타입 필드선언 및 생성
+    private List<Number> results = new ArrayList<>();//연산결과 저장하는 컬렉션 타입 필드선언 및 생성
 
-    public List<Integer> Calculator(int n1, int n2, String cal){
+    public List<Number> Calculator(Number n1, Number n2, String cal){
 
         OperatorType op = OperatorType.fromSymbol(cal);
 
@@ -23,15 +23,15 @@ public class ArithmeticCalculator {
     }
 
 
-    public List<Integer> getResults() {
+    public List<Number> getResults() {
         return results;
     }
     //입력한 숫자를 컬렉션 필드에 추가하는 메서드
-    public void setResults(int n) {
+    public void setResults(Number n) {
         this.results.add(n);
     }
 
-    public void setResults(List<Integer> results) {
+    public void setResults(List<Number> results) {
         this.results = results;
     }
 }

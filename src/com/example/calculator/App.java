@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        int num1,num2 = 0;
+        Double num1,num2;
         List<Integer> test = new ArrayList<>();
         int testing = 0;
         char cal= ' '; //연산기호저장 변수
@@ -19,7 +19,7 @@ public class App {
         while (true) {
             while (true) {//무한반복
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                num1 = sc.nextInt();
+                num1 = sc.nextDouble();
                 if (num1 >= 0) {//입력받은 숫자가 0보다 큰 경우 반복문 탈출
                     break;
                 } else {//그외 모든경우
@@ -28,7 +28,7 @@ public class App {
             }
             while (true) {
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                num2 = sc.nextInt();
+                num2 = sc.nextDouble();
                 if (num2 >= 0) {
                     break;
                 } else {

@@ -4,21 +4,21 @@ public enum OperatorType {
     // 1. 각 상수가 수행할 실제 연산 로직을 익명 클래스 형태로 구현
     PLU("+") {
         @Override
-        public int apply(int x, int y) { return x + y; }
+        public <T extends Number> Number apply(Number x, Number y) { return x.doubleValue() +y.doubleValue(); }
     },
     MIN("-") {
         @Override
-        public int apply(int x, int y) { return x - y; }
+        public <T extends Number> Number apply(Number x, Number y) { return x.doubleValue()-y.doubleValue(); }
     },
     MUL("*") {
         @Override
-        public int apply(int x, int y) { return x * y; }
+        public <T extends Number> Number apply(Number x, Number y) { return x.doubleValue() * y.doubleValue(); }
     },
     DIV("/") {
         @Override
-        public int apply(int x, int y) {
-            if (y == 0) throw new ArithmeticException("0으로 나눌 수 없습니다.");
-            return x / y;
+        public <T extends Number> Number apply(Number x, Number y) {
+            if (y.doubleValue() == 0) throw new ArithmeticException("0으로 나눌 수 없습니다.");
+            return x.doubleValue()/y.doubleValue();
         }
     };
 
@@ -41,6 +41,6 @@ public enum OperatorType {
     public String getSymbol() { return symbol; }
 
     // 2. 모든 연산자가 공통으로 가져야 할 추상 메서드 선언
-    public abstract int apply(int x, int y);
+    public abstract <T extends Number> Number apply(Number n1, Number n2);
 }
 

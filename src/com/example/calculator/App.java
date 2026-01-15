@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class App {
-
     public static void main(String[] args) {
 
         int num1,num2 = 0;
@@ -15,7 +14,8 @@ public class App {
         String exit= "";
 
         Scanner sc = new Scanner(System.in);//사용자로부터 입력받기위한 인스턴스
-        Calculator calMethod = new Calculator();
+        ArithmeticCalculator calMethod = new ArithmeticCalculator();
+
         while (true) {
             while (true) {//무한반복
                 System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -38,7 +38,7 @@ public class App {
             System.out.println("사칙연산 기호를 입력해주세요 : +, -, *, /");
             cal = sc.next().charAt(0);//입력값중 첫번째글자만 char형태 변수 cal에 저장
 
-            calMethod.Calculator(num1,num2,cal);//사칙연산을 수행 후, 결과값 반환 메서드
+            calMethod.Calculator(num1,num2,Character.toString(cal));//숫자2개와 char형을 String으로 변환 후 전달
 
             System.out.println("더 계산하시겠습니까?\n(exit 입력 시 종료,\t check 입력시 결과확인, \t modify 입력시 결과수정)");
             exit = sc.next();
